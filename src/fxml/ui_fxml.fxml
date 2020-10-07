@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import main.*?>
+
+<HBox prefHeight="450.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.UserController">
+    <children>
+        <VBox focusTraversable="true">
+            <children>
+                <HBox alignment="TOP_RIGHT" />
+                <Label text="Add New Sale">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
+                </Label>
+                <TextField fx:id="firstName" promptText="First Name">
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="lastName" promptText="Last Name">
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="address" promptText="Address">
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <Label text=" Speed">
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
+                </Label>
+                <ChoiceBox fx:id="cbSpeed">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ChoiceBox>
+                <Label text=" Mbit">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="lbl3" text="Bandwidth ">
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
+                </Label>
+                <ChoiceBox fx:id="cbBandwidth">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ChoiceBox>
+                <Label text=" GB">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="lbl4" text="Contract period ">
+                    <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </VBox.margin>
+                </Label>
+                <ChoiceBox fx:id="cbContract">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ChoiceBox>
+                <Label text=" year/s">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Label>
+
+
+                <HBox alignment="TOP_RIGHT">
+                    <children>
+                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clearPerson" prefWidth="51.0" text="Clear">
+                            <HBox.margin>
+                                <Insets right="80.0" top="10.0" />
+                            </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deletePerson" text="Delete">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0" top="10.0" />
+                            </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="saveBtn" alignment="CENTER" mnemonicParsing="false" onAction="#savePerson" prefWidth="51.0" text="Save" textOverrun="CENTER_ELLIPSIS">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="editBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editPerson" prefWidth="51.0" text="Edit" textOverrun="CENTER_ELLIPSIS">
+                            <HBox.margin>
+                                <Insets left="85.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <Pane>
+            <TableView fx:id="table" onMouseClicked="#selectRow" prefHeight="400.0" prefWidth="710.0">
+                <columns>
+                    <TableColumn fx:id="userId" prefWidth="65.0" resizable="false" text="User ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="userId" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn resizable="false" text="First Name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="firstName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn resizable="false" text="Last Name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="lastName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="220.0" resizable="false" text="Address">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="address" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn prefWidth="94.0" resizable="false" text="Speed">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="speed" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="70.0" resizable="false" text="Bandwidth">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="bandwidth" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="100.0" resizable="false" text="Contract period">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="contract" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <User address="Bucuresti, Str. Ion Creanga, Nr.2" bandwidth="flat" contract="2 years" firstName="Mihai" lastName="Popa" speed="50 Mbps" userId="04947df8" />
+                        <User address="Timisoara, Str. Mihai Viteazu, Nr.1" bandwidth="100 GB" contract="2 years" firstName="Radu" lastName="Ile" speed="20 Mbps" userId="14947df8" />
+                        <User address="Arad, Str. Barbu Vacarescu, Nr.22" bandwidth="10 GB" contract="1 year" firstName="Doru" lastName="Ionescu" speed="50 Mbps" userId="24947df8" />
+                        <User address="Iasi, Str. Lalelelor, Nr.21" bandwidth="flat" contract="2 years" firstName="Ion" lastName="Butnaru" speed="100 Mbps" userId="34947df8" />
+                    </FXCollections>
+                </items>
+            </TableView>
+            <Label fx:id="errorLabel" layoutX="14.0" layoutY="407.0" textFill="RED" />
+        </Pane>
+
+    </children>
+</HBox>
